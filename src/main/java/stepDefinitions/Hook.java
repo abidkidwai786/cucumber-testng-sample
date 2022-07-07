@@ -2,10 +2,9 @@ package stepDefinitions;
 
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import io.cucumber.java.*;
+
 import MyRunner.TestRunner;
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
 
 public class Hook extends TestRunner {
     public RemoteWebDriver driver = this.connection;
