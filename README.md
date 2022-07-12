@@ -68,13 +68,10 @@ You can generate capabilities for your test requirements with the help of [Desir
 
 ### Executing The Test
 
-**Step 4:** Executing single test:
-
+**Step 4:** Executing single and parallel test:
 ```bash
 mvn test -D suite=single.xml 
-
-**Step 5:** Executing parallel test:
-
+git
 ```bash
 mvn test -D suite=parallel.xml 
 ```
