@@ -69,12 +69,11 @@ You can generate capabilities for your test requirements with the help of [Desir
 ### Executing The Test
 
 **Step 4:** Executing single and parallel test:
-```bash
+
 mvn test -D suite=single.xml 
-git
-```bash
+
 mvn test -D suite=parallel.xml 
-```
+
 
 Your test results would be displayed on the test console (or command-line interface if you are using terminal/cmd) and on LambdaTest Automation Dashboard. LambdaTest Automation Dashboard will help you view all your text logs, screenshots and video recording for your entire automation tests.
 
