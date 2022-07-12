@@ -1,5 +1,4 @@
 package MyRunner;
-
 import java.net.URL;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
@@ -13,6 +12,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
+
+import org.openqa.selenium.JavascriptExecutor;
+import java.net.MalformedURLException;
 
 
 @CucumberOptions(
@@ -32,25 +34,30 @@ public class TestRunner extends AbstractTestNGCucumberTests {
     }
     
     @BeforeMethod(alwaysRun = true)
-    @Parameters({ "browser", "version", "platform" })
-    public void setUpClass(String browser, String version, String platform) throws Exception {
+    @Parameters({ "deviceName", "platformVersion", "platformName" })
+    public void setUpClass(String deviceName, String platformVersion, String platformName) throws Exception {
 
-    		String username = System.getenv("LT_USERNAME") == null ? "YOUR LT_USERNAME" : System.getenv("LT_USERNAME"); 
-    		String accesskey = System.getenv("LT_ACCESS_KEY") == null ? "YOUR LT_ACCESS_KEY" : System.getenv("LT_ACCESS_KEY"); 
+    		String username = System.getenv("LT_USERNAME") == null ? " " : System.getenv("LT_USERNAME"); 
+    		String accesskey = System.getenv("LT_ACCESS_KEY") == null ? " " : System.getenv("LT_ACCESS_KEY"); 
 
     		DesiredCapabilities capability = new DesiredCapabilities();    		
-    		capability.setCapability(CapabilityType.BROWSER_NAME, browser);
-    		capability.setCapability(CapabilityType.VERSION,version);
-    		capability.setCapability(CapabilityType.PLATFORM, platform);
+
+
+            capability.setCapability("platformName", platformName);
+	        capability.setCapability("deviceName", deviceName);
+	        capability.setCapability("platformVersion",platformVersion);
     		    		
-    		capability.setCapability("build", "Cucumber Sample Build");
-    		
-    		capability.setCapability("network", true);
+    		capability.setCapability("build", "Native App automate Demo");
+       		capability.setCapability("test", "Test Parallel");    		
+	        capability.setCapability("isRealMobile", true);
+
+            capability.setCapability("app","lt://APP10011121654105462192905");
+            capability.setCapability("network", true);
     		capability.setCapability("video", true);
     		capability.setCapability("console", true);
     		capability.setCapability("visual", true);
 
-    		String gridURL = "https://" + username + ":" + accesskey + "@hub.lambdatest.com/wd/hub";
+    		String gridURL = "https://" + username + ":" + accesskey + "@mobile-hub.lambdatest.com/wd/hub";
     		System.out.println(gridURL);
     		connection = new RemoteWebDriver(new URL(gridURL), capability);
     		System.out.println(capability);

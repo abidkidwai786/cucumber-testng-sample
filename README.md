@@ -1,33 +1,6 @@
 # Run Selenium Tests With Cucumber On LambdaTest
 
-![image](https://user-images.githubusercontent.com/70570645/171435902-8e87c640-dc42-4d01-a322-f39ffe1867d1.png)
 
-<p align="center">
-  <a href="https://www.lambdatest.com/blog/?utm_source=github&utm_medium=repo&utm_campaign=cucumber-testng-sample" target="_bank">Blog</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://www.lambdatest.com/support/docs/?utm_source=github&utm_medium=repo&utm_campaign=cucumber-testng-sample" target="_bank">Docs</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://www.lambdatest.com/learning-hub/?utm_source=github&utm_medium=repo&utm_campaign=cucumber-testng-sample" target="_bank">Learning Hub</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://www.lambdatest.com/newsletter/?utm_source=github&utm_medium=repo&utm_campaign=cucumber-testng-sample" target="_bank">Newsletter</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://www.lambdatest.com/certifications/?utm_source=github&utm_medium=repo&utm_campaign=cucumber-testng-sample" target="_bank">Certifications</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://www.youtube.com/c/LambdaTest" target="_bank">YouTube</a>
-</p>
-&emsp;
-&emsp;
-&emsp;
-
-*Learn how to use Cucumber framework to configure and run your Java automation testing scripts on the LambdaTest platform.*
-
-[<img height="58" width="200" src="https://user-images.githubusercontent.com/70570645/171866795-52c11b49-0728-4229-b073-4b704209ddde.png">](https://accounts.lambdatest.com/register?utm_source=github&utm_medium=repo&utm_campaign=cucumber-testng-sample)
-
-## Table Of Contents
-
-* [Pre-requisites](#pre-requisites)
-* [Run Your First Test](#run-your-first-test)
-* [Local Testing With Cucumber](#testing-locally-hosted-or-privately-hosted-projects)
 
 ## Pre-requisites
 
@@ -39,19 +12,6 @@ Before you can start performing Selenium automation testing with Cucumber, you w
 
 - Install **Maven**. It can be downloaded and installed following the steps from [the official website](https://maven.apache.org/). Maven can also be installed easily on **Linux/MacOS** using [Homebrew](https://brew.sh/) package manager.
 
-### Cloning Repo And Installing Dependencies
-
-**Step 1:** Clone the LambdaTest’s Cucumber-TestNG-Sample repository and navigate to the code directory as shown below:
-
-```bash
-git clone https://github.com/LambdaTest/cucumber-testng-sample
-cd cucumber-testng-sample
-```
-
-You may also want to run the command below to check for outdated dependencies.
-
-```bash
-mvn versions:display-dependency-updates
 ```
 
 ### Setting Up Your Authentication
@@ -78,18 +38,18 @@ Make sure you have your LambdaTest credentials with you to run test automation s
 
 
 ```bash
-Feature: Add new item to ToDO list
+Feature: Do native app automation
 
-Scenario: Lambdatest ToDO Scenario
+Scenario: Proverbial App scenario
 
-Given user is on home Page
-When select First Item
-Then select second item
-Then add new item
-Then verify added item
+Given user is on the App home page
+When click on color element
+Then click on geolocation element and navigate back
+Then click on text element
+Then click on notification element
+Then click on toast element
 ```
 
-Check out the [TestRunner.java](https://github.com/LambdaTest/cucumber-testng-sample/blob/master/src/main/java/MyRunner/TestRunner.java) file to automate our feature file through Selenium using Cucumber-TestNG.
 
 ### Configuring Your Test Capabilities
 
@@ -105,12 +65,18 @@ DesiredCapabilities capability = new DesiredCapabilities();
 
 You can generate capabilities for your test requirements with the help of [Desired Capability Generator](https://www.lambdatest.com/capabilities-generator/?utm_source=github&utm_medium=repo&utm_campaign=cucumber-testng-sample).
 
+
 ### Executing The Test
 
-**Step 4:** The tests can be executed in the terminal using the following command:
+**Step 4:** Executing single test:
 
 ```bash
-mvn test
+mvn test -D suite=single.xml 
+
+**Step 5:** Executing parallel test:
+
+```bash
+mvn test -D suite=parallel.xml 
 ```
 
 Your test results would be displayed on the test console (or command-line interface if you are using terminal/cmd) and on LambdaTest Automation Dashboard. LambdaTest Automation Dashboard will help you view all your text logs, screenshots and video recording for your entire automation tests.
